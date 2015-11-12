@@ -1,0 +1,73 @@
+<!-- index.html -->
+<!doctype html>
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<html ng-app="DrugsPrice">
+<head>
+    
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js"></script><!-- load jquery -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script><!-- load angular -->
+    <script src="core.js"></script>
+    <script type="text/javascript">
+    // Script goes here ... 
+    </script>
+    <!-- META -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Optimize mobile viewport -->
+
+    <title>Node/Angular Todo App</title>
+
+    <!-- SCROLLS -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"><!-- load bootstrap -->
+    <style>
+        html                    { overflow-y:scroll; }
+        body                    { padding-top:50px; }
+        #todo-list              { margin-bottom:30px; }
+    </style>
+
+    <!-- SPELLS -->
+    
+</head>
+<!-- SET THE CONTROLLER AND GET ALL TODOS -->
+<body ng-controller="mainController">
+    <div class="container">
+
+        <!-- HEADER AND TODO COUNT -->
+        <div class="jumbotron text-center">
+            <h1>Drugs Prices<span class="label label-info">{{ drugs.length }}</span></h1>
+        </div>
+
+        <!-- TODO LIST -->
+        
+        <!-- FORM TO CREATE TODOS -->
+        <div id="todo-form" class="row">
+            <div class="col-sm-8 col-sm-offset-2 text-center">
+                <form>
+                    <div class="form-group">
+
+                        <!-- BIND THIS VALUE TO formData.text IN ANGULAR -->
+                        <input type="text" class="form-control" placeholder="Search your drug" ng-model="searched_drug" ng-change="searchDrugs(searched_drug)">
+                    </div>
+
+                    <!-- createToDo() WILL CREATE NEW TODOS -->
+                </form>
+            </div>
+        </div>
+        
+        <div id="todo-list" class="row">
+            <div class="col-sm-4 col-sm-offset-4">
+
+                <!-- LOOP OVER THE TODOS IN $scope.todos -->
+                <div class="checkbox" ng-repeat="drug in drugs">
+                    <label>
+                        <a ng-click="getDrugById(drug._id)" href="#">{{ drug.name }} &nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;  {{ drug.price }} $</a>
+                    </label>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>

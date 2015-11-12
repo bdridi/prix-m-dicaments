@@ -37,3 +37,15 @@ To watch some training videos, visit http://www.youtube.com/user/c9ide
 
 We provide this demo workspace in order for you to experience the power of Cloud9. 
 It contains sample projects for Node.js, PHP, Python, Ruby, and HTML5.
+
+
+sudo /etc/init.d/mongodb start
+mongo
+
+npm install mongodb
+npm install nodemon
+
+killall node : to stop the node server
+
+
+https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular
