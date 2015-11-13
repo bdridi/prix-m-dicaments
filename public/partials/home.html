@@ -1,33 +1,4 @@
-<!doctype html>
-
-<html ng-app="DrugsPrice">
-<head>
-    
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.js"></script>
-     <script src="/js/core.js"></script> 
-     
-    
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Prix Des Médicaments - France</title>
-
-   
-    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-    <style>
-        html                    { overflow-y:scroll; }
-        body                    { padding-top:10px; }
-        #liste{ overflow:auto;
-                height:400px;
-                margin-top:10px;
-        }
-        
-    </style>
-
-</head>
-<body ng-controller="mainController">
-    <div class="container">
+ <div class="container">
 
         <div class="jumbotron text-center" style="margin-top:3px">
             <h1> Medocs €&nbsp;<span class="label label-info">{{ drugs.length }}</span></h1>
@@ -60,8 +31,3 @@
         </div>
 
     </div>
-     
-    
-
-</body>
-</html>

@@ -49,3 +49,5 @@ killall node : to stop the node server
 
 
 https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular
+
+mongoimport --db drugs --collection medicaments --file /home/ubuntu/workspace/data/data.json
