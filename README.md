@@ -88,3 +88,9 @@ IGNORE 0 LINES
 ----------------
 SET CHARACTER SET 'utf8';
 SET collation_connection = 'utf8_general_ci';
+---------------
+select distinct 
+d.cis,d.libelle,d.forme,d.etat,d.titulaire,p.libelle_pres,p.taux_rem,p.prix
+from medoc_desc d, medoc_pres p
+where d.cis = p.cis
+and p.prix is not null;

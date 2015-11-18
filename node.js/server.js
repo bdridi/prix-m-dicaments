@@ -27,9 +27,30 @@
     app.use('/partials',express.static(path.join(__dirname, '../public/partials')));      // set the static files location for styles
 
     
+    
+    // -------------- test new schema ------
+    var MedocSchema = new mongoose.Schema({ 
+         cis : String,
+         libelle: {type:String,index:true}, 
+         forme:String,
+         etat : String,
+         titulaire : String,
+         libelle_pres : String,
+         taux_rem : String,
+         prix: String
+      });
+      
+       MedocSchema.statics.findByName = function(name, cb){
+        return this.find({ libelle: new RegExp(name, 'gi') }, cb);
+     }
+     
+     var medicament = mongoose.model('medocs', MedocSchema);
+    
+    // ---------------- end test new schema --------
+    
     // define Schema and model =============================================================================================================================
 
-    var MedicamentSchema = new mongoose.Schema({ 
+   /* var MedicamentSchema = new mongoose.Schema({ 
          libelle: {type:String,index:true}, 
          prix: String
       });
@@ -39,7 +60,7 @@
     }
     
      var medicament = mongoose.model('Medicament', MedicamentSchema);
-   
+   */
 
     // routes ======================================================================
     // api ------------------------------------------------------------------------
