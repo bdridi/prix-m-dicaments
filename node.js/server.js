@@ -24,12 +24,13 @@
     app.use('/img',express.static(path.join(__dirname, '../public/images')));   // set the static files location for images
     app.use('/js',express.static(path.join(__dirname, '../public/js')));        // set the static files location for javascript files
     app.use('/css',express.static(path.join(__dirname, '../public/css')));      // set the static files location for styles
-    
+    app.use('/partials',express.static(path.join(__dirname, '../public/partials')));      // set the static files location for styles
+
     
     // define Schema and model =============================================================================================================================
 
     var MedicamentSchema = new mongoose.Schema({ 
-         libelle: String, 
+         libelle: {type:String,index:true}, 
          prix: String
       });
       
@@ -63,13 +64,13 @@
     // application -------------------------------------------------------------
      app.get('*', function(req, res) {
         
-     res.sendfile(path.join(__dirname, '../public/index.html')); // load the single view file (angular will handle the page changes on the front-end)
+     res.sendfile(path.join(__dirname, '../public/index0.html')); // load the single view file (angular will handle the page changes on the front-end)
     });
     
     
     
     // listen (start app with node server.js) ======================================
     app.listen(8080);
-    console.log("App listening on port 8080"); 
+    console.log("App listening on port 8090"); 
     
     

@@ -14,8 +14,8 @@ app.config(['$routeProvider',
             controller: 'helpController'
         }).
 					
-				when('/partials/details/:id?', {
-            templateUrl: 'details.html',
+			when('/details/:id?', {
+            templateUrl: '/partials/details.html',
             controller: 'detailsController'
         }).
         

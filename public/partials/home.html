@@ -1,9 +1,5 @@
- <div class="container">
 
-        <div class="jumbotron text-center" style="margin-top:3px">
-            <h1> Medocs €&nbsp;<span class="label label-info">{{ drugs.length }}</span></h1>
-        </div>
-
+ 
 
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2 text-center">
@@ -22,10 +18,10 @@
             </div>
             
         <div class="row">     
-            <ul class="list-group" style="" id="liste">
+            <ul class="list-group" id="liste">
               <li class="list-group-item" ng-repeat="drug in drugs">
               <span class="badge">{{drug.prix}} €</span>
-                <a ng-click="getDrugById(drug._id)" href="#">{{drug.libelle}}
+                <a  href="#/details/{{drug._id}}">{{drug.libelle}}</a>
               </li>
             </ul>
         </div>

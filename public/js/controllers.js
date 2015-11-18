@@ -1,8 +1,9 @@
-angular.module('Controllers',[])
+var ctrls = angular.module('Controllers',[]);
 
 
 /*   	Factory */
 
+/*
 .factory('drugsFactory', function($http){
 		var factory = {};	
 		
@@ -32,29 +33,52 @@ angular.module('Controllers',[])
 		};	
 		
 		return factory;
-})
-
+}).
+*/
 
 // Home Controller...
 
-.controller('homeController', function($scope,drugsFactory){
+
+ctrls.controller('homeController', function($scope,$http){
 	
     $scope.searchDrugs = function(name) {
-         $scope.drugs = drugsFactory.getDrugs(name);   
-    };
+          
+       
+          if(name.length > 0 ){
+               $http.get('/api/selected/'+ name)
+                .success(function(data) {
+                    $scope.drugs = data;
+                    console.log(data);
+                })
+                .error(function(data) {
+                    console.log('Error: ' + data);
+                });
+          }
+        };
 
-})
+});
 
-.controller('helpController', function($scope){
-	$scope.message = 'ApplicationHelp Panel  ';
-}).
+ctrls.controller('helpController', function($scope){
+	$scope.message = 'ApplicationHelp Panel';
+	
+});
 
 
-controller('detailsController',['$scope','$routeParams','drugsFactory', function($scope,$routeParams,drugsFactory){
+// details controller
+ctrls.controller('detailsController',['$scope','$routeParams','$http', function($scope,$routeParams,$http){
 	
 
-	$scope.drug = drugsFactory.getDrug($routeParams.id);
-	//$scope.id = $routeParams.id;
+	$scope.id = $routeParams.id;
 
+            
+     $http.get('/api/drug/'+$routeParams.id)
+            .success(function(data) {
+                    $scope.drug = data;
+                    console.log(data);
+                })
+                .error(function(data) {
+                console.log('Error: ' + data);
+              });
+     
 }]);
 

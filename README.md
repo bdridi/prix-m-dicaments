@@ -51,3 +51,40 @@ killall node : to stop the node server
 https://scotch.io/tutorials/creating-a-single-page-todo-app-with-node-and-angular
 
 mongoimport --db drugs --collection medicaments --file /home/ubuntu/workspace/data/data.json
+
+if we get this error : 
+exception:BSON representation of supplied JSON is too large: code FailedToParse: FailedToParse: Expecting '{': offset:0
+we use the following command:
+mongoimport -d drugs -c medocs --file /home/ubuntu/workspace/data/medocs.json --jsonArray
+
+
+mysql import data from sql file :
+use medoc
+source /home/ubuntu/workspace/data/tables.json
+
+installing phpmyadmin
+phpmyadmin-ctl install
+
+
+import csv to mysql :
+
+LOAD DATA INFILE "/home/ubuntu/workspace/data/pres_data.csv"
+INTO TABLE medoc_pres
+CHARACTER SET UTF8
+COLUMNS TERMINATED BY '\t'
+OPTIONALLY ENCLOSED BY '"'
+ESCAPED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 0 LINES
+------------------------
+LOAD DATA INFILE "/home/ubuntu/workspace/data/pres_data.csv"
+INTO TABLE medoc_pres
+CHARACTER SET UTF8
+COLUMNS TERMINATED BY '\t'
+OPTIONALLY ENCLOSED BY '"'
+ESCAPED BY '"'
+LINES TERMINATED BY '\n'
+IGNORE 0 LINES
+----------------
+SET CHARACTER SET 'utf8';
+SET collation_connection = 'utf8_general_ci';
