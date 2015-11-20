@@ -16,11 +16,32 @@
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
     <style>
-        html                    { overflow-y:scroll; }
-        body                    { padding-top:10px; }
+        html{ 
+            /*overflow-y:scroll;*/
+            
+        }
+        body{ 
+            padding-top:10px;
+            padding-left : 10px;
+            padding-right:10px;
+            
+            
+        }
         #liste{ overflow:auto;
-                height:400px;
+                height:70vh;
                 margin-top:10px;
+        }
+        
+        .alert{
+            margin-top:30px;
+        }
+        
+        .header{
+            margin-top:3px;
+            height:20vh;
+        }
+        .search_bar{
+            height:10vh;
         }
         
     </style>
@@ -28,10 +49,7 @@
 </head>
 <body>
     
-        <div class="jumbotron text-center" style="margin-top:3px">
-            <h1> Medocs €&nbsp;<span class="label label-info">{{ drugs.length }}</span></h1>
-        </div>
-
+      
    <div ng-view></div>
      
     

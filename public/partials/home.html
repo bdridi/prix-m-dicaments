@@ -1,5 +1,8 @@
 
- 
+   <div class="jumbotron text-center header" style="margin-top:3px">
+            <h1> Medocs €&nbsp;<span class="label label-info">&nbsp;{{ drugs.length }}</span></h1>
+   </div>
+
 
         <div class="row">
             <div class="col-sm-8 col-sm-offset-2 text-center">
@@ -17,6 +20,19 @@
                 </form>
             </div>
             
+        
+        <div class="alert alert-danger" role="alert" ng-show="introuvable">
+              <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+              <span class="sr-only">Error:</span>
+               Ouups ... Aucun médicament correspond à {{searched_drug}} !
+        </div>  
+        
+        
+         <div class="alert alert-warning" ng-show="warning_long">
+              <strong>Warning ! </strong> Minimum 4 caractères..
+        </div>  
+        
+        
         <div class="row">     
             <ul class="list-group" id="liste">
               <li class="list-group-item" ng-repeat="drug in drugs">

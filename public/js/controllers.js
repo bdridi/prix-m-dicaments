@@ -44,15 +44,24 @@ ctrls.controller('homeController', function($scope,$http){
     $scope.searchDrugs = function(name) {
           
        
-          if(name.length > 0 ){
+          if(name.length > 3 ){
+              $scope.drugs = {};
+              $scope.warning_long = false;
+              $scope.introuvable = false;
                $http.get('/api/selected/'+ name)
                 .success(function(data) {
+                    if (data.length == 0)
+                        $scope.introuvable = true;
                     $scope.drugs = data;
                     console.log(data);
                 })
                 .error(function(data) {
                     console.log('Error: ' + data);
                 });
+          }
+          else {
+              $scope.warning_long = true;
+               $scope.drugs = {};
           }
         };
 

@@ -1,8 +1,14 @@
 
+  <div class="jumbotron text-center" style="margin-top:3px">
+<a class="btn btn-small" href="#/home" ><i class="icon-home"></i> Home </a> 
+ <h1> Medocs €&nbsp;<span class="label label-info">{{ drug.cis }}</span></h1>
+  </div>
+
+
 <h2>Détails du médicament :</h2>
+<h3>Dénomination du médicament : </h3><b>{{drug.libelle}}</b><br>
 
 <h4>Code Identifiant de Spécialité : </h4>{{drug.cis}}<br>
-<h4>Dénomination du médicament : </h4>{{drug.libelle}}<br>
 <h4>Forme pharmaceutique :</h4>{{drug.forme}}<br>
 <h4>Etat de commercialisation :</h4>{{drug.etat}}<br>
 <h4>Titulaire(s) :</h4>{{drug.titulaire}}<br>
