@@ -61,6 +61,7 @@ ctrls.controller('homeController', function($scope,$http){
           }
           else {
               $scope.warning_long = true;
+               $scope.introuvable = false;
                $scope.drugs = {};
           }
         };
