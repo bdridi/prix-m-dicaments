@@ -28,7 +28,6 @@
 
     
     
-    // -------------- test new schema ------
     var MedocSchema = new mongoose.Schema({ 
          cis : String,
          libelle: {type:String,index:true}, 
@@ -46,22 +45,6 @@
      
      var medicament = mongoose.model('medocs', MedocSchema);
     
-    // ---------------- end test new schema --------
-    
-    // define Schema and model =============================================================================================================================
-
-   /* var MedicamentSchema = new mongoose.Schema({ 
-         libelle: {type:String,index:true}, 
-         prix: String
-      });
-      
-      MedicamentSchema.statics.findByName = function(name, cb){
-        return this.find({ libelle: new RegExp(name, 'gi') }, cb);
-    }
-    
-     var medicament = mongoose.model('Medicament', MedicamentSchema);
-   */
-
     // routes ======================================================================
     // api ------------------------------------------------------------------------
     
@@ -81,6 +64,52 @@
         });
     
     });
+    
+    
+        // SEND MAIL CONTACT ----------------------
+
+    app.post('/api/contact', function(req, res){
+        
+      var mailOpts, transporter;    
+        
+       console.log("contact api on server invoked");
+       
+       var nodemailer = require('nodemailer');
+        transporter = nodemailer.createTransport({
+          service: 'gmail',
+          auth: {
+            user: 'billy.dridi@gmail.com',    // your email here
+            pass: 'roktud52'          // your password here
+          }
+        });
+    
+        var htmlContent = '<p>Name: ' + req.body.name + '</p>' +
+                        '<p>Email: ' + req.body.email + '</p>' +
+                        '<p>Message: ' + req.body.message + '</p>';
+         var mailOptions = {
+        to: 'billy.dridi@gmail.com',                  // your email here
+        subject: 'New message',
+        from: req.body.name + ' <' + req.body.email + '>',
+        sender: req.body.email,
+        html: htmlContent
+      };
+      
+      
+      transporter.sendMail(mailOptions, function(err, info){
+        if (err) {
+          console.log(err);
+          console.log("error occured");
+        }else{
+          console.log('Message sent: ' + info.response);
+          return res.json(201, info);
+        }
+      });
+   
+
+        
+    });
+    
+        
 
     // application -------------------------------------------------------------
      app.get('*', function(req, res) {
@@ -89,9 +118,8 @@
     });
     
     
-    
     // listen (start app with node server.js) ======================================
     app.listen(8080);
-    console.log("App listening on port 8090"); 
+    console.log("App listening on port 8080"); 
     
     

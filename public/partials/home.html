@@ -1,25 +1,30 @@
 
-   <div class="jumbotron text-center header">
-            <h1 style="margin-top:10px"> MeDOCS €&nbsp;<span class="label label-info">{{ drugs.length }}</span></h1>
-   </div>
+<div class="container" ng-show="!drugs.length">
+  <div class="jumbotron">
+        <h1>Prix des médicaments ... </h1> 
+        <p>Trouvez tous les prix des médicaments en France avant d'aller au phmarmacien. 
+        </p> 
+    </div>
+</div>
+     
 
-
-        <div class="row search_bar">
-            <div class="col-sm-8 col-sm-offset-2 text-center">
-                <form>
-                                
-                    <div class="col-lg-6">
-                        <div class="input-group">
-                          <input type="text" class="form-control" placeholder="Recherchez votre médicament..." ng-model="searched_drug">
-                          <span class="input-group-btn">
-                            <button class="btn btn-default" type="button" ng-click="searchDrugs(searched_drug)" >Rechercher !</button>
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                </form>
+<div class="row search_bar">
+    <div class="col-sm-8 col-sm-offset-2 text-center">
+        <form>
+                        
+            <div class="center-block">
+                <div class="input-group">
+                  <input type="text" id="search_area" class="form-control" placeholder="Recherchez votre médicament..." ng-model="searched_drug">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default" type="button" ng-click="searchDrugs(searched_drug)" >Rechercher !</button> 
+                  </span>
+                </div>
+              </div>
             </div>
-            
+        </form>
+</div>
+
+
         
         <div class="alert alert-danger" role="alert" ng-show="introuvable">
               <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
@@ -32,6 +37,14 @@
               <strong>Warning ! </strong> Minimum 4 caractères..
         </div>  
         
+        
+        <div class="loader center-block text-center" ng-show="loader">
+            <div id="block_1" class="barlittle"></div>
+            <div id="block_2" class="barlittle"></div>
+            <div id="block_3" class="barlittle"></div>
+            <div id="block_4" class="barlittle"></div>
+            <div id="block_5" class="barlittle"></div>
+        </div>
         
         <div class="row">     
             <ul class="list-group" id="liste">

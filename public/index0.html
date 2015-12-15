@@ -6,6 +6,8 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.3/angular.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.5/angular-route.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
      <script src="/js/app.js"></script>
      <script src="/js/controllers.js"></script>
     
@@ -15,6 +17,7 @@
     <title>Prix Des Médicaments - France</title>
 
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/css/main.css" type="text/css">
     <style>
         html{ 
             /*overflow-y:scroll;*/
@@ -32,7 +35,6 @@
                 height:70vh;
                 margin-top:10px;
                 
-
         }
         
         .alert{
@@ -41,12 +43,23 @@
         
         .header{
             margin-top:3px;
-            height:20vh;
-                        background-image:url(http://www.bidochon.fr/wp-content/uploads/2014/10/pharmacie_internet_medicaments.jpg);
-
+            height:15vh;
+            /*            background-image:url(http://www.bidochon.fr/wp-content/uploads/2014/10/pharmacie_internet_medicaments.jpg);
+*/
         }
         .search_bar{
-            height:10vh;
+            height:12vh;
+            width:80vw;
+            text-align:center;
+            margin-left:auto;
+            margin-right:auto;
+        }
+        #search_area{
+           
+        
+        }
+        #ng_view{
+            /*height:83vh;*/
         }
         
     </style>
@@ -54,10 +67,46 @@
 </head>
 <body>
     
+    <nav class = "navbar navbar-default" role = "navigation">
+       
+       <div class = "navbar-header">
+          <button type = "button" class = "navbar-toggle" 
+             data-toggle = "collapse" data-target = "#example-navbar-collapse">
+             <span class = "sr-only">Toggle navigation</span>
+             <span class = "icon-bar"></span>
+             <span class = "icon-bar"></span>
+             <span class = "icon-bar"></span>
+          </button>
+    		
+          <a class = "navbar-brand" href = "#/home">Medocs</a>
+                 <h3 style="float:left"><span class="label label-info">{{ drugs.length }}</span></h3>
+
+       </div>
+       
+       
+       <div class = "collapse navbar-collapse" id = "example-navbar-collapse">
+    	
+          <ul class = "nav navbar-nav">
+             <li ><a href = "#/home">Acceuil</a></li>
+             <li><a href = "#/help">A propos</a></li>
+              <li><a class = "active" href = "#/contact">Contactez-Nous</a></li>
+    			
+    			
+          </ul>
+       </div>
+       
+    </nav>
+
+    <!-- Fin Header -->
       
-   <div ng-view></div>
+   <div id="ng_view" ng-view></div>
      
     
-
+    <div id="footer">
+      <div class="container">
+        <p class="muted credit">Réference : La base de données publique des médicaments ( Ministère des affaires sociales de la santé et des droits des femmes ) </p>
+          <p>Dernier mise à jour : 15/12/2015</p>
+      </div>
+</div>
 </body>
 </html>

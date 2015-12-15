@@ -1,20 +1,37 @@
 
-  <div class="jumbotron text-center" style="margin-top:3px">
-<a class="btn btn-small" href="#/home" ><i class="icon-home"></i> Home </a> 
- <h1> Medocs €&nbsp;<span class="label label-info">{{ drug.cis }}</span></h1>
-  </div>
+<div class="table-responsive" id="details_table"> 
 
-
-<h2>Détails du médicament :</h2>
-<h3>Dénomination du médicament : </h3><b>{{drug.libelle}}</b><br>
-
-<h4>Code Identifiant de Spécialité : </h4>{{drug.cis}}<br>
-<h4>Forme pharmaceutique :</h4>{{drug.forme}}<br>
-<h4>Etat de commercialisation :</h4>{{drug.etat}}<br>
-<h4>Titulaire(s) :</h4>{{drug.titulaire}}<br>
-<h4>Libellé de la présentation :</h4>{{drug.libelle_pres}}<br>
-<h4>Taux de remboursement : </h4>{{drug.tauw_rem}}<br>
-<h4>Prix du médicament : </h4> {{drug.prix}} € <br> 
-
-
-
+    <table class="table table-bordered">
+      
+      <tr>
+        <th colspan="2">Détails sur <i>{{drug.libelle}}</i></th>
+       
+      </tr>
+      
+      <tr>
+        <td>Prix du médicament</td>
+        <td><b>{{drug.prix}} € </b></td>
+      </tr>
+     
+       <tr>
+        <td>Code Identifiant de Spécialité</td>
+        <td>{{drug.cis}}</td>
+      </tr>
+       <tr>
+        <td>Forme pharmaceutique </td>
+        <td>{{drug.forme}}</td>
+      </tr>
+       <tr>
+        <td>Titulaire(s)</td>
+        <td>{{drug.titulaire}}</td>
+      </tr>
+       <tr>
+        <td>Libellé de la présentation</td>
+        <td>{{drug.libelle_pres}}</td>
+      </tr>
+       <tr>
+        <td>Taux de remboursement</td>
+        <td>{{drug.taux_rem}}</td>
+      </tr>
+    </table>
+  </div>  

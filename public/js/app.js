@@ -13,7 +13,12 @@ app.config(['$routeProvider',
             templateUrl: '/partials/help.html',
             controller: 'helpController'
         }).
-					
+		
+		when('/contact', {
+            templateUrl: '/partials/contact.html',
+            controller: 'contactController'
+        }).
+        
 			when('/details/:id?', {
             templateUrl: '/partials/details.html',
             controller: 'detailsController'
