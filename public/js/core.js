@@ -1,10 +1,6 @@
 // public/core.js
     var DrugsPrice = angular.module('DrugsPrice', []);
     
-    
-    
-    
-    
     function mainController($scope, $http) {
        
         $scope.formData = {};
