@@ -32,5 +32,4 @@
                     console.log('Error: ' + data);
                 });
         };
-
 }

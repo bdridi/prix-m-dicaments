@@ -12,7 +12,7 @@ npm install nodemon
 # Starting node server with nodemon 
 ********************************************
 
-sudo nodemon server.js
+sudo nodemon node.js/server.js
 - Gére les changements du serveur nodejs ( redmemarre le serveur à chaque modification )
 
 killall node : to stop the node server
@@ -67,7 +67,6 @@ d.cis,d.libelle,d.forme,d.etat,d.titulaire,p.libelle_pres,p.taux_rem,p.prix
 from medoc_desc d, medoc_pres p
 where d.cis = p.cis
 and p.prix <> '';
-
 
 
 *******************

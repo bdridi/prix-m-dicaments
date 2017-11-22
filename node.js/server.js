@@ -78,8 +78,8 @@
         transporter = nodemailer.createTransport({
           service: 'gmail',
           auth: {
-            user: 'billy.dridi@gmail.com',    // your email here
-            pass: 'roktud52'          // your password here
+            user: 'email@email.com',    // your email here
+            pass: '*****'          // your password here
           }
         });
     
@@ -87,7 +87,7 @@
                         '<p>Email: ' + req.body.email + '</p>' +
                         '<p>Message: ' + req.body.message + '</p>';
          var mailOptions = {
-        to: 'billy.dridi@gmail.com',                  // your email here
+        to: 'xxxxxi@email.com',                  // your email here
         subject: 'New message',
         from: req.body.name + ' <' + req.body.email + '>',
         sender: req.body.email,
